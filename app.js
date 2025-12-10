@@ -1,8 +1,11 @@
 // app.js
 
-// 1. Importar dependencias básicas
 const express = require('express');
 const path = require('path');
+
+// Importa la conexión para que se inicialice la DB y las tablas
+const db = require('./src/db/connection');
+
 
 // 2. Crear la aplicación Express
 const app = express();
