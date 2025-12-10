@@ -1,0 +1,8 @@
+# dependencias de Node
+node_modules/
+
+# base de datos local de SQLite
+db/database.sqlite
+
+# archivos de logs
+*.log
