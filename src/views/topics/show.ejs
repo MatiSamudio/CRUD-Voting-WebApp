@@ -1,0 +1,12 @@
+<h2><%= topic.title %></h2>
+<p><%= topic.description || 'Sin descripción' %></p>
+<p>Votos: <%= topic.votes %></p>
+
+<form action="/topics/<%= topic.id %>/vote" method="POST">
+  <button type="submit">Votar este tema</button>
+</form>
+
+<p>
+  <a href="/topics">Volver</a> |
+  <a href="/topics/<%= topic.id %>/edit">Editar</a>
+</p>
