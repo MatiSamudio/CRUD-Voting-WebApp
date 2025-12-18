@@ -1,0 +1,23 @@
+<h2>Editar enlace</h2>
+
+<p>
+  Tema: <strong><%= topic.title %></strong>
+</p>
+
+<form action="/topics/<%= topic.id %>/links/<%= link.id %>/edit" method="POST">
+  <div>
+    <label>Título</label><br />
+    <input type="text" name="title" value="<%= link.title %>" required />
+  </div>
+
+  <div>
+    <label>URL</label><br />
+    <input type="text" name="url" value="<%= link.url %>" required />
+  </div>
+
+  <button type="submit">Guardar</button>
+</form>
+
+<p>
+  <a href="/topics/<%= topic.id %>">Cancelar</a>
+</p>
