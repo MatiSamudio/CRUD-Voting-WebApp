@@ -3,12 +3,18 @@
 <ul>
   <% topics.forEach(topic => { %>
     <li>
-      <strong><a href="/topics/<%= topic.id %>"><%= topic.title %></a></strong>
-      — votos: <%= topic.votes %>
+      <strong>
+        <a href="/topics/<%= topic.id %>"><%= topic.title %></a>
+      </strong>
+      — votos: <span id="topic-votes-<%= topic.id %>"><%= topic.votes %></span>
 
-      <form action="/topics/<%= topic.id %>/vote" method="POST" style="display:inline;">
-        <button type="submit">Votar</button>
-      </form>
+      <button
+        type="button"
+        data-vote
+        data-url="/api/topics/<%= topic.id %>/vote"
+        data-counter="#topic-votes-<%= topic.id %>">
+        Votar
+      </button>
 
       <a href="/topics/<%= topic.id %>/edit">Editar</a>
 
@@ -22,3 +28,5 @@
 <% if (topics.length === 0) { %>
   <p>No hay temas todavía.</p>
 <% } %>
+
+<script src="/js/votes.js"></script>

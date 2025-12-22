@@ -8,6 +8,8 @@ const topicPageRoutes = require('./src/routes/topicPageRoutes');
 // Si querés mantener API, la montás aparte:
 // const topicApiRoutes = require('./src/routes/topicRoutes');
 
+const voteApiRoutes = require('./src/routes/api/voteRoutes');
+
 const app = express();
 const PORT = 3000;
 
@@ -26,6 +28,8 @@ app.use('/topics', topicPageRoutes);
 
 // API (JSON) opcional, en otra ruta para no chocar
 // app.use('/api/topics', topicApiRoutes);
+app.use('/api', voteApiRoutes);
+
 
 app.get('/', (req, res) => res.redirect('/topics'));
 
