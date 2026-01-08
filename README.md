@@ -73,7 +73,7 @@ The application uses **SQLite** as a lightweight relational database.
 ---
 
 ## Project Structure
-
+```txt
 .
 ├── app.js
 ├── public/
@@ -102,7 +102,7 @@ The application uses **SQLite** as a lightweight relational database.
 │ ├── edit.ejs
 │ └── link_edit.ejs
 └── README.md
-
+```
 ---
 
 ## Installation
