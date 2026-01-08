@@ -5,7 +5,7 @@ const linkModel = require('../../models/linkModel');
 const router = express.Router();
 
 /*
-  VOTAR TEMA
+  Endpoint para votar tema 
   POST /api/topics/:id/vote
 */
 router.post('/topics/:id/vote', (req, res) => {
@@ -23,7 +23,7 @@ router.post('/topics/:id/vote', (req, res) => {
 });
 
 /*
-  VOTAR LINK
+  Endpoint para votar link dentro de un tema
   POST /api/topics/:topicId/links/:linkId/vote
 */
 router.post('/topics/:topicId/links/:linkId/vote', (req, res) => {

@@ -6,6 +6,7 @@ function indexPage(req, res) {
   res.render('topics/index', { topics });
 }
 
+// entrega un HTML con formulario
 function newPage(req, res) {
   res.render('topics/new');
 }
@@ -66,7 +67,7 @@ function updateFromForm(req, res) {
 function deleteFromForm(req, res) {
   const id = Number(req.params.id);
 
-  const ok = topicModel.deleteTopic(id);
+  const ok = topicModel.deleteTopic(id); // devuelve booleano | True si borro una fila | False si no existia
   if (!ok) return res.status(404).send('Topic not found');
 
   res.redirect('/topics');
@@ -86,7 +87,8 @@ function createLinkFromForm(req, res) {
   const topicId = Number(req.params.id);
   const { title, url } = req.body;
 
-  const topic = topicModel.getTopicById(topicId);
+  //validacion de que exista el topic, title y url antes de insertar el link
+  const topic = topicModel.getTopicById(topicId); 
   if (!topic) return res.status(404).send('Topic not found');
 
   if (!title || title.trim() === '') {
@@ -149,6 +151,7 @@ function editLinkPage(req, res) {
     return res.status(400).send('Link does not belong to this topic');
   }
 
+  // aca renderizamos la vista de edicion de link de un topic, con el form precargado 
   res.render('topics/link_edit', { topic, link });
 }
 

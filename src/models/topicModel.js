@@ -1,8 +1,6 @@
-// src/models/topicModel.js
-
 const db = require('../db/connection');
 
-// Helper opcional para timestamp actual en formato SQLite
+// Helper para timestamp actual en formato SQLite
 function now() {
   return new Date().toISOString().slice(0, 19).replace('T', ' ');
 }

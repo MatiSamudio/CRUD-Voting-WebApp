@@ -1,8 +1,12 @@
 const express = require('express');
+
+// Importa el controlador topicPageController
+// page es un objeto que contiene funciones (handlers) que reciben (req, res)
 const page = require('../controllers/topicPageController');
 
 const router = express.Router();
 
+// GET se usa para mostrar paginas 
 router.get('/', page.indexPage);
 router.get('/new', page.newPage);
 router.get('/:id', page.showPage);

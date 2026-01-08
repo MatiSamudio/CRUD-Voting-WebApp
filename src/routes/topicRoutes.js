@@ -1,5 +1,3 @@
-// src/routes/topicRoutes.js
-
 const express = require('express');
 const topicController = require('../controllers/topicController');
 
@@ -21,6 +19,6 @@ router.put('/:id', topicController.updateTopic);
 router.delete('/:id', topicController.deleteTopic);
 
 // Votar tema
-router.post('/:id/vote', topicController.voteTopic);
+// router.post('/:id/vote', topicController.voteTopic);
 
 module.exports = router;

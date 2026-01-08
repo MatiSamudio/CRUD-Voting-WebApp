@@ -5,11 +5,12 @@ const path = require('path');
 require('./src/db/connection');
 
 const topicPageRoutes = require('./src/routes/topicPageRoutes');
-// Si querés mantener API, la montás aparte:
-// const topicApiRoutes = require('./src/routes/topicRoutes');
 
 const voteApiRoutes = require('./src/routes/api/voteRoutes');
 
+const topicApiRoutes = require('./src/routes/topicRoutes');
+
+// la app se crea y se define el puerto
 const app = express();
 const PORT = 3000;
 
@@ -23,16 +24,17 @@ app.set('views', path.join(__dirname, 'src', 'views'));
 
 app.get('/health', (req, res) => res.send('OK'));
 
-// WEB (HTML)
+// WEB (HTML) se monta el router
 app.use('/topics', topicPageRoutes);
 
-// API (JSON) opcional, en otra ruta para no chocar
-// app.use('/api/topics', topicApiRoutes);
 app.use('/api', voteApiRoutes);
 
+app.use('/api/topics', topicApiRoutes);
 
+// entra a / y manda a /topics (asi define la 'home')
 app.get('/', (req, res) => res.redirect('/topics'));
 
+// arranque del servidor
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });

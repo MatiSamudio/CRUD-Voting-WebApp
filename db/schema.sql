@@ -1,5 +1,4 @@
--- db/schema.sql
-
+-- activa las claves foraneas -> aseguramos que se aplique el ON DELETE CASCADE 
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS topics (

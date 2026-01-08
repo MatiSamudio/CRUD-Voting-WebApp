@@ -1,19 +1,17 @@
-// src/db/connection.js
-
 const path = require('path');
 const Database = require('better-sqlite3');
 
-// 1. Construimos la ruta al archivo de base de datos
+// Construimos la ruta al archivo de base de datos
 const dbPath = path.join(__dirname, '..', '..', 'db', 'database.sqlite');
 
-// 2. Abrimos / creamos la base de datos
-//    Si el archivo no existe, better-sqlite3 lo crea.
+//  Abrimos / creamos la base de datos
+//  Si el archivo no existe, better-sqlite3 crea.
 const db = new Database(dbPath);
 
-// 3. Aseguramos que las claves foráneas están activadas
+//  Aseguramos que las claves foráneas están activadas
 db.pragma('foreign_keys = ON');
 
-// 4. Creamos las tablas si no existen (misma estructura que schema.sql)
+//  Creamos las tablas si no existen (misma estructura que schema.sql)
 db.exec(`
   CREATE TABLE IF NOT EXISTS topics (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,5 +34,5 @@ db.exec(`
   );
 `);
 
-// 5. Exportamos la instancia de base de datos para usar en los modelos
+//  Exportamos la instancia de base de datos para usar en los modelos
 module.exports = db;

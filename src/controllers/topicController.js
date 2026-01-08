@@ -1,5 +1,3 @@
-// src/controllers/topicController.js
-
 const topicModel = require('../models/topicModel');
 
 // GET /topics

@@ -1,5 +1,3 @@
-// src/models/linkModel.js
-
 const db = require('../db/connection');
 
 function now() {
